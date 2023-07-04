@@ -14,25 +14,25 @@ def stream_markup_timer(_, videoid, chat_id, played, dur):
     percentage = (played_sec / duration_sec) * 100
     anon = math.floor(percentage)
     if 0 < anon <= 10:
-        bar = "◉—————————"
+        bar = "⬤─────────"
     elif 10 < anon < 20:
-        bar = "—◉————————"
+        bar = "━⬤────────"
     elif 20 <= anon < 30:
-        bar = "——◉———————"
+        bar = "━━⬤───────"
     elif 30 <= anon < 40:
-        bar = "———◉——————"
+        bar = "━━━⬤──────"
     elif 40 <= anon < 50:
-        bar = "————◉—————"
+        bar = "━━━━⬤─────"
     elif 50 <= anon < 60:
-        bar = "—————◉————"
+        bar = "━━━━━⬤────"
     elif 60 <= anon < 70:
-        bar = "——————◉———"
+        bar = "━━━━━━⬤───"
     elif 70 <= anon < 80:
-        bar = "———————◉——"
+        bar = "━━━━━━━⬤──"
     elif 80 <= anon < 95:
-        bar = "————————◉—"
+        bar = "━━━━━━━━⬤─"
     else:
-        bar = "—————————◉"
+        bar = "━━━━━━━━━⬤"
 
     buttons = [
         [
@@ -57,15 +57,23 @@ def stream_markup_timer(_, videoid, chat_id, played, dur):
             ),
             InlineKeyboardButton(
                 text="▢", callback_data=f"ADMIN Stop|{chat_id}"
+           ],
+           [
+            InlineKeyboardButton(
+                text="🥀 ᴜᴘᴅᴀᴛᴇ 💥", url=f"https://t.me/taitanoffice"
             ),
+            InlineKeyboardButton(
+                text="🥀 sᴜᴩᴩᴏʀᴛ 💥", url=f"https://t.me/DXDREAMBIG"
+            )
         ],
         [
             InlineKeyboardButton(
-                text="✯ ᴄʟᴏsᴇ ✯", callback_data=f"close"
+                text="✯ ᴄʟᴏsᴇ ✯", callback_data="close"
             )
         ],
     ]
     return buttons
+
 
 
 def telegram_markup_timer(_, chat_id, played, dur):
@@ -74,33 +82,28 @@ def telegram_markup_timer(_, chat_id, played, dur):
     percentage = (played_sec / duration_sec) * 100
     anon = math.floor(percentage)
     if 0 < anon <= 10:
-        bar = "◉—————————"
+        bar = "𝐓ᴀɪᴛᴀɴ 𝐈s 𝐒ᴛᴀʀᴛᴇᴅ"
     elif 10 < anon < 20:
-        bar = "—◉————————"
+        bar = "𝐓ᴀɪᴛᴀɴ Gᴀᴍᴇʀ Bᴏᴛ"
     elif 20 <= anon < 30:
-        bar = "——◉———————"
+        bar = "Bᴏᴛ Oᴡɴᴇʀ Tᴀɪᴛᴀɴ"
     elif 30 <= anon < 40:
-        bar = "———◉——————"
+        bar = "Tᴀɪᴛᴀɴ ʙɪɢ Dᴀᴛᴀʙᴀsᴇ"
     elif 40 <= anon < 50:
-        bar = "————◉—————"
+        bar = "Tᴀɪᴛᴀɴ Is sᴛᴀʀᴛᴇᴅ"
     elif 50 <= anon < 60:
-        bar = "—————◉————"
+        bar = "Mᴀᴅᴇ Bʏ Tᴀɪᴛᴀɴ"
     elif 60 <= anon < 70:
-        bar = "——————◉———"
+        bar = "Tᴀɪᴛᴀɴ Gᴀᴍᴇʀ Bᴏᴛ"
     elif 70 <= anon < 80:
-        bar = "———————◉——"
+        bar = "Tᴀɪᴛᴀɴ Sᴇʀᴠᴇʀ Bᴏᴛ"
     elif 80 <= anon < 95:
-        bar = "————————◉—"
+        bar = "Tᴀɪᴛᴀɴ ᴅᴀᴛᴀʙᴀsᴇ"
     else:
-        bar = "—————————◉"
+        bar = "Bʏᴇ Bʏᴇ Fɪɴɪsʜᴇᴅ"
+
 
     buttons = [
-        [
-            InlineKeyboardButton(
-                text=f"{played} {bar} {dur}",
-                callback_data="GetTimer",
-            )
-        ],
         [
             InlineKeyboardButton(
                 text="▷",
@@ -110,20 +113,36 @@ def telegram_markup_timer(_, chat_id, played, dur):
                 text="II", callback_data=f"ADMIN Pause|{chat_id}"
             ),
             InlineKeyboardButton(
+                text="✮", callback_data=f"add_playlist {videoid}"
+            ),
+            InlineKeyboardButton(
                 text="‣‣I", callback_data=f"ADMIN Skip|{chat_id}"
             ),
             InlineKeyboardButton(
                 text="▢", callback_data=f"ADMIN Stop|{chat_id}"
-            ),
+            )
         ],
         [
             InlineKeyboardButton(
-                text="✯ ᴄʟᴏsᴇ ✯", callback_data=f"close"
+                text=f"{played} {bar} {dur}",
+                callback_data="GetTimer",
+            )
+        ],
+        [
+            InlineKeyboardButton(
+                text="🥀 ᴜᴘᴅᴀᴛᴇ 💥", url=f"https://t.me/taitanoffice"
+            ),
+            InlineKeyboardButton(
+                text="🥀 sᴜᴩᴩᴏʀᴛ 💥", url=f"https://t.me/DXDREAMBIG"
+            )
+        ],
+        [
+            InlineKeyboardButton(
+                text="✯ ᴄʟᴏsᴇ ✯", callback_data="close"
             )
         ],
     ]
     return buttons
-
 
 def stream_markup(_, videoid, chat_id):
     buttons = [
@@ -317,18 +336,25 @@ def queue_markup(_, videoid, chat_id):
                 text="II", callback_data=f"ADMIN Pause|{chat_id}"
             ),
             InlineKeyboardButton(
-                text="☆", callback_data=f"add_playlist {videoid}"
+                text="✮", callback_data=f"add_playlist {videoid}"
             ),
             InlineKeyboardButton(
                 text="‣‣I", callback_data=f"ADMIN Skip|{chat_id}"
             ),
             InlineKeyboardButton(
                 text="▢", callback_data=f"ADMIN Stop|{chat_id}"
+           ],
+           [
+            InlineKeyboardButton(
+                text="🥀 ᴜᴘᴅᴀᴛᴇ 💥", url=f"https://t.me/taitanoffice"
             ),
+            InlineKeyboardButton(
+                text="🥀 sᴜᴩᴩᴏʀᴛ 💥", url=f"https://t.me/DXDREAMBIG"
+            )
         ],
         [
             InlineKeyboardButton(
-                text="✯ ᴄʟᴏsᴇ ✯", callback_data=f"close"
+                text="✯ ᴄʟᴏsᴇ ✯", callback_data="close"
             )
         ],
     ]
