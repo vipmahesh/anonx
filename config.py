@@ -1,4 +1,4 @@
-import re
+inimport re
 import sys
 from os import getenv
 
@@ -76,18 +76,18 @@ clean = {}
 autoclean = []
 
 
-START_IMG_URL = getenv("START_IMG_URL", "https://telegra.ph/file/5f446488a6f7d06c9cfbe.jpg")
+START_IMG_URL = getenv("START_IMG_URL", "https://te.legra.ph/file/5e75b4b834de52eab008b.jpg")
 
 PING_IMG_URL = getenv(
     "PING_IMG_URL",
-    "https://telegra.ph/file/5f446488a6f7d06c9cfbe.jpg"
+    ""
 )
 
 PLAYLIST_IMG_URL = "https://te.legra.ph/file/4ec5ae4381dffb039b4ef.jpg"
 
 GLOBAL_IMG_URL = "https://telegra.ph/file/5f446488a6f7d06c9cfbe.jpg"
 
-STATS_IMG_URL = "https://te.legra.ph/file/e906c2def5afe8a9b9120.jpg"
+STATS_IMG_URL = "https://te.legra.ph/file/5e75b4b834de52eab008b.jpg"
 
 TELEGRAM_AUDIO_URL = "https://te.legra.ph/file/6298d377ad3eb46711644.jpg"
 
@@ -130,9 +130,9 @@ if UPSTREAM_REPO:
 if PING_IMG_URL:
     if PING_IMG_URL != "assets/Ping.jpeg":
         if not re.match("(?:http|https)://", PING_IMG_URL):
-            PING_IMG_URL = "https://telegra.ph/file/5f446488a6f7d06c9cfbe.jpg"
+            PING_IMG_URL = ""
 
 if START_IMG_URL:
     if START_IMG_URL != "assets/Ping.jpeg":
         if not re.match("(?:http|https)://", START_IMG_URL):
-            START_IMG_URL = "https://telegra.ph/file/5f446488a6f7d06c9cfbe.jpg"
+            START_IMG_URL = "https://te.legra.ph/file/5e75b4b834de52eab008b.jpg"
