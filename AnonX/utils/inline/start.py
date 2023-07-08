@@ -1,25 +1,36 @@
 from typing import Union
+import re
+import os
+from os import getenv
+
+from dotenv import load_dotenv
+
+from pyrogram import filters
+
 
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
 import config
-
+load_dotenv()
+YOUR_GROUP = getenv("YOUR_GROUP", "")
+YOUR_CHANNEL = getenv("YOUR_CHANNEL", "")
+OWNER_USERNAME = getenv("OWNER_USERNAME", "")
 
 def start_pannel(_, BOT_USERNAME, OWNER: Union[bool, int] = None):
     buttons = [
         [
             InlineKeyboardButton(
-                text="𝐀dd 𝐓αɪᴛαи 𝐌υ𝗌𝗂ç 𝐈𐓣 𝐆ʀσup",
+                text="✚ 𝐀ᴅᴅ 𝐌ᴇ 𝐓ᴏ 𝐘ᴏᴜʀ 𝐆ʀᴏᴜᴘ ✚",
                 url=f"https://t.me/{BOT_USERNAME}?startgroup=true",
             )
         ],
         [
             InlineKeyboardButton(
-                text="𝑯𝒆𝒍𝒑",
+                text="🦋 𝐅ᴇᴀᴛᴜʀᴇ 🦋",
                 callback_data="settings_back_helper",
             ),
             InlineKeyboardButton(
-                text="𝑺𝒆𝒕𝒕𝒊𝒏𝒈𝒔", callback_data="settings_helper"
+                text="⚙️ 𝐒ᴇᴛᴛɪɴɢ ⚙️", callback_data="settings_helper"
             ),
         ],
      ]
@@ -30,16 +41,30 @@ def private_panel(_, BOT_USERNAME, OWNER: Union[bool, int] = None):
     buttons = [
         [
             InlineKeyboardButton(
-                text="𝐀dd 𝐓αɪᴛαи 𝐌υ𝗌𝗂ç 𝐈𐓣 𝐆ʀσup",
+                text="✚ 𝐀ᴅᴅ 𝐌ᴇ 𝐓ᴏ 𝐘ᴏᴜʀ 𝐆ʀᴏᴜᴘ ✚",
                 url=f"https://t.me/{BOT_USERNAME}?startgroup=true",
             )
         ],
         [
             InlineKeyboardButton(
-                text=" 𝑯𝒆𝒍𝒑 ", callback_data="settings_back_helper",
+                text="✨ 𝐀ɴᴏᴛʜᴇʀ ✨", url=f"https://t.me/TAITANXMUSICC_BOT",
             ),
             InlineKeyboardButton(
-                text="𝐓αɪᴛαи 𝐌υ𝗌𝗂ç", url=f"https://music.apple.com/"
+                text="🔎 𝐇ᴇʟᴘ 🔎", callback_data="settings_back_helper"
+            )
+        ],
+        [
+            InlineKeyboardButton(
+                text="💫 𝐒ᴜᴘᴘᴏʀᴛ 💫", url=f"https://t.me/THEYSTOPPAGE",
+            ),
+            InlineKeyboardButton(
+                text="🍁 𝐔ᴘᴅᴀᴛᴇs 🍁", url=f"https://t.me/taitanoffice",
+            )
+        ],
+        [
+            InlineKeyboardButton(
+                text="♕ ︎𝐎ᴡɴᴇʀ ♕︎",
+                url=f"https://t.me/VIPHerosmart",
             )
         ],
      ]
