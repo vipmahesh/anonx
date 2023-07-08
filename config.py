@@ -1,6 +1,4 @@
-import re
-import sys
-from os import getenv
+import reimport sysfrom os import getenv
 
 from dotenv import load_dotenv
 from pyrogram import filters
@@ -26,7 +24,7 @@ UPSTREAM_BRANCH = getenv("UPSTREAM_BRANCH", "master")
 GIT_TOKEN = getenv("GIT_TOKEN", None)
 
 SUPPORT_CHANNEL = getenv("SUPPORT_CHANNEL", "https://t.me/taitanoffice")
-SUPPORT_GROUP = getenv("SUPPORT_GROUP", "https://t.me/DXDREAMBIG")
+SUPPORT_GROUP = getenv("SUPPORT_GROUP", "https://t.me/THEYSTOPPAGE)
 
 SUPPORT_HEHE = SUPPORT_GROUP.split("me/")[1]
 
