@@ -1,39 +1,60 @@
+#
+# Copyright (C) 2021-2022 by TeamAloneOp@Github, < https://github.com/TeamAloneOp >.
+#
+# This file is part of < https://github.com/TeamAloneOp/AloneMusicBot > project,
+# and is released under the "GNU v3.0 License Agreement".
+# Please see < https://github.com/TeamAloneOp/AloneMusicBot/blob/master/LICENSE >
+#
+# All rights reserved.
+
 from typing import Union
-import re
-import os
-from os import getenv
 
-from dotenv import load_dotenv
+from pyrogram.types import InlineKeyboardButton
 
-from pyrogram import filters
+from config import GITHUB_REPO, SUPPORT_CHANNEL, SUPPORT_GROUP
+from AloneMusic import app
 
 
-from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
-
-import config
-load_dotenv()
-YOUR_GROUP = getenv("YOUR_GROUP", "")
-YOUR_CHANNEL = getenv("YOUR_CHANNEL", "")
-OWNER_USERNAME = getenv("OWNER_USERNAME", "")
-
-def start_pannel(_, BOT_USERNAME, OWNER: Union[bool, int] = None):
+def start_pannel(_):
     buttons = [
         [
             InlineKeyboardButton(
-                text="✚ 𝐀ᴅᴅ 𝐌ᴇ 𝐓ᴏ 𝐘ᴏᴜʀ 𝐆ʀᴏᴜᴘ ✚",
-                url=f"https://t.me/{BOT_USERNAME}?startgroup=true",
+                text=_["S_B_1"],
+                url=f"https://t.me/{app.username}?start=help",
+            ),
+            InlineKeyboardButton(
+                text=_["S_B_2"], callback_data="settings_helper"
+            ),
+        ],
+    ]
+    if SUPPORT_CHANNEL and SUPPORT_GROUP:
+        buttons.append(
+            [
+                InlineKeyboardButton(
+                    text=_["S_B_4"], url=f"{SUPPORT_CHANNEL}"
+                ),
+                InlineKeyboardButton(
+                    text=_["S_B_3"], url=f"{SUPPORT_GROUP}"
+                ),
+            ]
+        )
+    else:
+        if SUPPORT_CHANNEL:
+            buttons.append(
+                [
+                    InlineKeyboardButton(
+                        text=_["S_B_4"], url=f"{SUPPORT_CHANNEL}"
+                    )
+                ]
             )
-        ],
-        [
-            InlineKeyboardButton(
-                text="🦋 𝐅ᴇᴀᴛᴜʀᴇ 🦋",
-                callback_data="settings_back_helper",
-            ),
-            InlineKeyboardButton(
-                text="⚙️ 𝐒ᴇᴛᴛɪɴɢ ⚙️", callback_data="settings_helper"
-            ),
-        ],
-     ]
+        if SUPPORT_GROUP:
+            buttons.append(
+                [
+                    InlineKeyboardButton(
+                        text=_["S_B_3"], url=f"{SUPPORT_GROUP}"
+                    )
+                ]
+            )
     return buttons
 
 
@@ -41,31 +62,73 @@ def private_panel(_, BOT_USERNAME, OWNER: Union[bool, int] = None):
     buttons = [
         [
             InlineKeyboardButton(
-                text="✚ 𝐀ᴅᴅ 𝐌ᴇ 𝐓ᴏ 𝐘ᴏᴜʀ 𝐆ʀᴏᴜᴘ ✚",
+                text=_["S_B_8"], callback_data="settings_back_helper"
+            )
+        ]
+    ]
+    if SUPPORT_CHANNEL and SUPPORT_GROUP:
+        buttons.append(
+            [
+                InlineKeyboardButton(
+                    text=_["S_B_4"], url=f"{SUPPORT_CHANNEL}"
+                ),
+                InlineKeyboardButton(
+                    text=_["S_B_3"], url=f"{SUPPORT_GROUP}"
+                ),
+            ]
+        )
+    else:
+        if SUPPORT_CHANNEL:
+            buttons.append(
+                [
+                    InlineKeyboardButton(
+                        text=_["S_B_4"], url=f"{SUPPORT_CHANNEL}"
+                    )
+                ]
+            )
+        if SUPPORT_GROUP:
+            buttons.append(
+                [
+                    InlineKeyboardButton(
+                        text=_["S_B_3"], url=f"{SUPPORT_GROUP}"
+                    )
+                ]
+            )
+    buttons.append(
+        [
+            InlineKeyboardButton(
+                text=_["S_B_5"],
                 url=f"https://t.me/{BOT_USERNAME}?startgroup=true",
             )
-        ],
-        [
-            InlineKeyboardButton(
-                text="✨ 𝐀ɴᴏᴛʜᴇʀ ✨", url=f"https://t.me/TAITANXMUSICC_BOT",
-            ),
-            InlineKeyboardButton(
-                text="🔎 𝐇ᴇʟᴘ 🔎", callback_data="settings_back_helper"
+        ]
+    )
+    if GITHUB_REPO and OWNER:
+        buttons.append(
+            [
+                InlineKeyboardButton(text=_["S_B_7"], user_id=OWNER),
+                InlineKeyboardButton(
+                    text=_["S_B_6"], url=f"t.me/taitangamer"
+                ),
+            ]
+        )
+    else:
+        if GITHUB_REPO:
+            buttons.append(
+                [
+                    InlineKeyboardButton(
+                        text=_["S_B_6"], url=f"t.me/taitangamer"
+                    ),
+                ]
             )
-        ],
-        [
-            InlineKeyboardButton(
-                text="💫 𝐒ᴜᴘᴘᴏʀᴛ 💫", url=f"https://t.me/THEYSTOPPAGE",
-            ),
-            InlineKeyboardButton(
-                text="🍁 𝐔ᴘᴅᴀᴛᴇs 🍁", url=f"https://t.me/taitanoffice",
+        if OWNER:
+            buttons.append(
+                [
+                    InlineKeyboardButton(
+                        text=_["S_B_7"], user_id=OWNER
+                    ),
+                ]
             )
-        ],
-        [
-            InlineKeyboardButton(
-                text="♕ ︎𝐎ᴡɴᴇʀ ♕︎",
-                url=f"https://t.me/VIPHerosmart",
-            )
-        ],
-     ]
+    buttons.append(
+        [InlineKeyboardButton(text=_["ST_B_6"], callback_data="LG")]
+    )
     return buttons
