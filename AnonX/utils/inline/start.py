@@ -42,30 +42,31 @@ def private_panel(_, BOT_USERNAME, OWNER: Union[bool, int] = None):
     buttons = [
         [
             InlineKeyboardButton(
-                text="💔 𝐌u𝐉є 𝐀dd 𝐊α𝐑𝐋σ 𝐁αв𝐘 💔",
+                text="нοᴡ το υѕє мє? ϲοммαиᴅ мєиυ.", callback_data="settings_back_helper"
+            )
+        ],
+        [
+            InlineKeyboardButton(
+                text="🥀 ɢяουᴘ 💥", url=f"https://t.me/BEST_FRIENDS_CHATTIG",
+            ),
+            InlineKeyboardButton(
+                text="🥀 ᴄнαииєʟ 💥", url=f"https://t.me/JAYSHREERAMl1",
+            )
+        ],
+        [
+            InlineKeyboardButton(
+                text="✚ ᴀᴅᴅ мє το ʏουя gяουρ ✚",
                 url=f"https://t.me/{BOT_USERNAME}?startgroup=true",
             )
         ],
         [
             InlineKeyboardButton(
-                text="✨ 𝐌ᴀɴᴛᴀɪɴᴇR ✨", url=f"https://t.me/taitangamer",
-            ),
-            InlineKeyboardButton(
-                text="📝 𝐂σmmαn𝐃 𝐃є𝐊𝐋σ 𝐁αв𝐘 📝", callback_data="settings_back_helper"
-            )
-        ],
-        [
-            InlineKeyboardButton(
-                text="🥀 𝐆ʀᴏᴜ𝐏 💥", url=f"https://t.me/BES_BUDDIES_IN_LIFE",
-            ),
-            InlineKeyboardButton(
-                text="🥀 𝐂ʜᴀɴɴᴇ𝐋 💥", url=f"https://t.me/JAYSHREERAMl",
-            )
-        ],
-        [
-            InlineKeyboardButton(
-                text="😏 𝐄s𝐊α 𝐁σ𝐓 😏",
+                text="✨ οωиєя ✨",
                 url=f"https://t.me/VIP_MAHESH_BABU",
+            ),
+            InlineKeyboardButton(
+                text="💮 ѕουяϲє 💮",
+                url=f"https://t.me/taitangamer",
             )
         ],
      ]
