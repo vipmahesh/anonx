@@ -364,7 +364,7 @@ def stream_markup_timer(_, videoid, chat_id, played, dur):
         ],
         [
             InlineKeyboardButton(
-                text="❀⋟ 𝐃єνєℓσρєя ⋞❀", url="https://t.me/ALONE_WAS_BOT"
+                text="❀⋟ 𝐃єνєℓσρєя ⋞❀", url="https://t.me/Taitangamer"
             )
         ],
         [
@@ -639,7 +639,7 @@ def telegram_markup_timer(_, chat_id, played, dur):
         ],
         [
             InlineKeyboardButton(
-                text="❀⋟ 𝐃єνєℓσρєя ⋞❀", url="https://t.me/ALONE_WAS_BOT"
+                text="❀⋟ 𝐃єνєℓσρєя ⋞❀", url="https://t.me/Taitangamer"
             ),    
         ],
         [
@@ -673,7 +673,7 @@ def stream_markup(_, videoid, chat_id):
         ],
         [
             InlineKeyboardButton(
-                text="❀⋟ 𝐃єνєℓσρєя ⋞❀", url="https://t.me/ALONE_WAS_BOT"
+                text="❀⋟ 𝐃єνєℓσρєя ⋞❀", url="https://t.me/Taitangamer"
            ),
         ],
         [
